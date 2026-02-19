@@ -14,7 +14,7 @@
 		<script src="js/bootstrap.js"></script>
 	</head>
 	<body>
-		<!--<embed src="media/sounds/01GroundTheme.mp3" autostart="true" loop="true" hidden="true">-->
+		<!-- <embed src="media/sounds/01GroundTheme.mp3" autostart="true" loop="true" hidden="true">-->
 		<nav>
 			<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -64,7 +64,79 @@
 			  </div>
 		</nav>
 		<main>
-			
+			<div>
+				<h1>Manipulaciónde audio (&lt;audio&gt;)</h1>
+				<!-- <div>
+					<span>Etiqueta de audio únicamente con source</span>
+					<audio id="ejemplo1" src="media/sounds/01GroundTheme.mp3">
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div>
+				<div>
+					<span>Etiqueta de audio únicamente con source y type</span>
+					<audio id="ejemplo2" src="media/sounds/01GroundTheme.mp3" type="audio/mp3">
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div>
+				<div>
+					<span>Etiqueta de audio con source, type y controls</span>
+					<audio id="ejemplo3" controls autoplay src="media/sounds/01GroundTheme.mp3" type="audio/mp3">
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div>
+				<div>
+					<span>Etiqueta de audio con source, type, controls y loop</span>
+					<audio id="ejemplo4" controls autoplay loop src="media/sounds/01GroundTheme.mp3" type="audio/mp3">
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div> 
+				<div>
+					<span>Etiqueta de audio con source, type, controls, autoplay y muted</span>
+					<audio id="ejemplo5" controls autoplay muted src="media/sounds/01GroundTheme.mp3" type="audio/mp3">
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div>
+				<div>
+					<span>Etiqueta de audio con source, type, controls y etiqueta source</span>
+					<audio id="ejemplo6" controls autoplay>
+						<source src="media/sounds/01GroundTheme.mp3" type="audio/mp3" />
+						<source src="media/sounds/02UndergroundTheme.mp3" type="audio/mp3" />
+						<source src="media/sounds/03UnderwaterTheme.mp3" type="audio/mp3" />
+						No es soportada la Etiqueta "audio"
+					</audio>
+				</div>-->
+			</div>
+
+
+			<div>
+				<h1>Reproductor de Jaime Jeovanny Cortez Flores</h1>
+				<audio id="reproductor">
+					<source src="media/sounds/01GroundTheme.mp3" type="audio/mpeg" />
+				</audio>
+				<button type="button" id="play" class="btn btn-primary">Reproducir</button>
+				<button type="button" id="pause" class="btn btn-primary">Pausar</button>
+			</div>
+
+
+			<script type="text/javascript">
+				window.onload = () => {
+					const audio = document.getElementById("reproductor");
+					const play = document.getElementById("play");
+					const pause = document.getElementById("pause");
+
+					play.onclick = playAudio;
+					pause.onclick = pauseAudio;
+					
+
+					function playAudio(){
+						audio.play();
+					}
+					function pauseAudio(){
+						audio.pause();
+					}
+				}
+			</script>
+
 		</main>
 	</body>
 </html>
