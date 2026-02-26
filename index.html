@@ -107,7 +107,7 @@
 				</div>-->
 			</div>
 
-
+			<!--
 			<div>
 				<h1>Reproductor de Jaime Jeovanny Cortez Flores</h1>
 				<audio id="reproductor">
@@ -116,9 +116,60 @@
 				<button type="button" id="play" class="btn btn-primary">Reproducir</button>
 				<button type="button" id="pause" class="btn btn-primary">Pausar</button>
 			</div>
+			-->
 
+			<div id="drumSet">
+				<button type="button" id="KeyW" class="btn btn-secondary">Tambor 1</button>
+				<button type="button" id="KeyA" class="btn btn-secondary">Tambor 2</button>
+				<button type="button" id="KeyS" class="btn btn-secondary">Tambor 3</button>
+				<button type="button" id="KeyD" class="btn btn-secondary">Tambor 4</button>
+				<button type="button" id="KeyJ" class="btn btn-secondary">Snare</button>
+				<button type="button" id="KeyK" class="btn btn-secondary">Crash</button>
+				<button type="button" id="KeyL" class="btn btn-secondary">Kick Bass</button>
+			</div>
 
 			<script type="text/javascript">
+
+				var audio = new Audio()
+
+
+
+
+
+				const sounds = {
+					'KeyW':'https://www.virtualdrumming.com/drums/virtual-drum-sounds/hip-hop/tom1.ogg',
+					'KeyA':'https://www.virtualdrumming.com/drums/virtual-drum-sounds/hip-hop/tom2.ogg',
+					'KeyS':'https://www.virtualdrumming.com/drums/virtual-drum-sounds/hip-hop/tom3.ogg',
+					'KeyD':'https://www.virtualdrumming.com/drums/virtual-drum-sounds/hip-hop/pad1.ogg',
+					'KeyJ':'https://www.virtualdrumming.con/drums/virtual-drum-sounds/hip-hop/snare1.ogg',
+					'KeyK':'https://freesound.org/data/previews/263/263132_2064400-lq.mp3',
+					'KeyL':'https://pacdv.com/sounds/interface_sound_effects/sound94.wav'
+				}
+
+				
+
+				//EJECUCIÓN DE SONIDO A PARTIR DEL EVENTO KEYPRESS
+				window.addEventListener('keypress',function(e){
+					console.log(e.code);
+					if(sounds[e.code]){
+						console.log("Presionando la tecla: ", e.code);
+						document.getElementById(e.code).click();
+					}
+				});
+				//CAPTURA DE INDICE DEL ARREGLO DE SONIDOS
+				document.getElementById('drumSet').addEventListener('click',function(event){
+					const tgt = event.target.closest('button');
+					if(tgt) play(sounds[tgt.id]);
+				});
+
+				//MÉTODO PARA LA EJECUCIÓN DEL AUDIO
+				const play = sound => {
+					console.log("Sonando: ",sound);
+					var audio = new Audio(sound);
+					audio.play();
+				}
+
+				/*
 				window.onload = () => {
 					const audio = document.getElementById("reproductor");
 					const play = document.getElementById("play");
@@ -135,6 +186,7 @@
 						audio.pause();
 					}
 				}
+				*/
 			</script>
 
 		</main>
